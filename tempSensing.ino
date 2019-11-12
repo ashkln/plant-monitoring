@@ -36,7 +36,7 @@ void loop(){
 
     Serial.println(DHT.temperature);
     
-    delay(2000);//Wait 2 seconds before accessing sensor again.
+    delay(60000);//Wait 60 seconds before accessing sensor again.
  
   //Fastest should be once every two seconds.
  
