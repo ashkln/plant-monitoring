@@ -28,7 +28,8 @@ humid = []  # taking empty array for plotting graph
 tempC = []  # taking empty array for plotting graph
 count = 0  # making a counter
 
-arduinoData = serial.Serial("COM5", 9600)  # connecting python to the serial port
+# connecting python to the serial port
+arduinoData = serial.Serial("COM5", 9600)
 plt.ion()  # telling matplotlib that I'll be plotting live data
 
 
@@ -37,13 +38,15 @@ def makeFig():  # create a function that makes our desired plot
     plt.title("Live plant monitoring system")  # giving title to the project
     plt.grid(True)  # making grid in the graph for better representation
     plt.ylabel("Temperature Celcius")  # adding the temperature label
-    plt.plot(tempC, "ro-", label="Degree Celcius")  # plotting the temperature data
+    # plotting the temperature data
+    plt.plot(tempC, "ro-", label="Degree Celcius")
     plt.legend(loc="upper left")  # giving location to the temperature legend
 
     plt2 = plt.twinx()  # twin of the x axis for humidity
     plt2.plot(humid, "b^-", label="Humidity")  # plotting data for the humidity
     plt.legend(loc="upper right")  # giving location to the humidity legend
-    plt2.ticklabel_format(useOffset=False)  # force matplotlib not to autoscale Y
+    # force matplotlib not to autoscale Y
+    plt2.ticklabel_format(useOffset=False)
 
 
 while True:  # infinity while loop
@@ -75,4 +78,3 @@ while True:  # infinity while loop
     if count > 50:  # making an if statement for popping the old data
         tempC.pop(0)  # popping the old temperature data
         humid.pop(0)  # popping the old humidity data
-
