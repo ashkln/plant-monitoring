@@ -51,7 +51,6 @@ while True:  # infinity while loop
         pass  # Does nothing, only passes the data
     arduinoString = arduinoData.readline()  # reads the data from the serial port
     arduinoString = arduinoString.decode()  # decode the read data
-    # print(arduinoString)                                                                                      #printing the data temporarily just to see if the code works'''
 
     dataArray = arduinoString.split(",")  # spliting the data into two array
     humidity = float(dataArray[0])  # taking humidity value as float
