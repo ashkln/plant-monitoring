@@ -68,6 +68,7 @@ while True:  # infinity while loop
         print("data added")
     except:
         print("some error occured")
+        print(e)
 
     tempC.append(temperature)  # appending values to temperature array
     humid.append(humidity)  # appending values to humidity array
