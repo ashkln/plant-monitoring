@@ -66,8 +66,9 @@ while True:  # infinity while loop
     try:
         db.data.insert_one(obj)
         print("data added")
-    except:
+    except Exception as e:
         print("some error occured")
+        print(e)
 
     tempC.append(temperature)  # appending values to temperature array
     humid.append(humidity)  # appending values to humidity array
