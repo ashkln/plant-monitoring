@@ -66,7 +66,7 @@ while True:  # infinity while loop
     try:
         db.data.insert_one(obj)
         print("data added")
-    except Exception as e:
+    except:
         print("some error occured")
         print(e)
 

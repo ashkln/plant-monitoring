@@ -1,9 +1,7 @@
-from flask import Flask,redirect,escape
+from flask import Flask,redirect,escape,jsonify
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
-import json
-import time
 
 # instantiate app
 app = Flask(__name__)
@@ -19,25 +17,23 @@ DB_NAME = os.getenv("DB_NAME")
 client = MongoClient(DB_URI)
 db = client[DB_NAME]
 
+# test route
 @app.route("/")
 def hello():
     return "hello there"
 
+
+# data route
 @app.route("/getData")
 def getData():
-    try:
-        data = db.data.find_one()
+    data = db.data.find().sort('_id',-1)
+    req_data = data[0]
+    temp = req_data['temperature']
+    humidity = req_data['humidity']
 
-        if data == None:
-            return "no data at this moment"
-        else:
-            print(data)
-            timestamp = data['timestamp']
-            t_2 = time.time()
-            print(t_2)
-            print(t_2-timestamp)
+    req_data = {
+        "temperature":temp,
+        "humidity":humidity
+    }
 
-            return data
-
-    except:
-        return "some error occured"
+    return jsonify(req_data)
