@@ -1,5 +1,5 @@
 """
-__author__  =  ('ABHISEK GANGULY' , 'ASHUTOSH NAYAK')
+__author__  =  ('ABHISEK GANGULY' , "ashklempton")
 GITHUB REPO OF THE FULL PROJECT = https://github.com/AbhisekGanguly/Live-Plant-Monitoring-system
 
 ABHISEK GANGULY = 'https://github.com/AbhisekGanguly'
